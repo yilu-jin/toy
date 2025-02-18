@@ -57,7 +57,7 @@ dm_site_core <- function(
   }
 
   # Check if input variables exist
-  inpt_vars <- c(idvar, treatment_order, site_var, country_var)
+  inpt_vars <- c(idvar, treatment_var, site_var, country_var)
   diff_vars <- setdiff(inpt_vars, colnames(population_from))
 
   if(length(diff_vars) > 0 ) {
