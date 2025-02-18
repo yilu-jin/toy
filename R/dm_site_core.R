@@ -13,12 +13,13 @@
 #'
 #' @return A list containing two data frames: one named report.table.n for count results,
 #' and the other named report.table.p for percentage results.
+#' @import dplyr
 #' @export
 #'
 #' @examples
 #' dm_site_core(
 #'   population_from = adsl,
-#'   population_where = "ITTFL == 'Y'",
+#'   population_where = "FASFL == 'Y'",
 #'   idvar = "USUBJID",
 #'   treatment_var = "TRT01P",
 #'   treatment_order = NULL,

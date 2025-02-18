@@ -46,7 +46,7 @@ Core function to generate the number of participants randomized by site
 \examples{
 dm_site_core(
   population_from = adsl,
-  population_where = "ITTFL == 'Y'",
+  population_where = "FASFL == 'Y'",
   idvar = "USUBJID",
   treatment_var = "TRT01P",
   treatment_order = NULL,
