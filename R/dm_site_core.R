@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' dm_site_core(
-#'   population_from = adsl,
+#'   population_from = demo_adsl,
 #'   population_where = "FASFL == 'Y'",
 #'   idvar = "USUBJID",
 #'   treatment_var = "TRT01P",
@@ -118,7 +118,17 @@ dm_site_core <- function(
     dplyr::filter(trt %in% treatment_order) %>%
     dplyr::mutate(trt = factor(trt, levels = treatment_order))
 
-
+  # Remove missing values of country and site
+  if (!is.null(country_var)) {
+    population_from <- population_from %>%
+      dplyr::mutate(country = dunlin::reformat(!!sym(country_var), missing_rule)) %>%
+      dplyr::filter(country != '<Missing>')
+  }
+  if (!is.null(site_var)) {
+    population_from <- population_from %>%
+      dplyr::mutate(site = dunlin::reformat(!!sym(site_var), missing_rule)) %>%
+      dplyr::filter(site != '<Missing>')
+  }
 
   # Take subset of the population
   if(is.null(population_where)){
@@ -193,7 +203,8 @@ dm_site_core <- function(
         is.na(!!sym(site_var)),
         paste0(!!sym(country_var)),
         paste0('  ', !!sym(site_var))
-      ))
+      )) %>%
+      dplyr::mutate(name = as.character(name))
 
   }
 
