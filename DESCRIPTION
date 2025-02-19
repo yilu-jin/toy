@@ -15,6 +15,7 @@ BugReports: https://github.com/yilu-jin/toy/issues
 Imports: 
     base,
     checkmate (>= 2.3.1),
+    covr,
     dplyr (>= 1.1.4),
     dunlin (>= 0.1.7),
     glue (>= 1.7.0),
