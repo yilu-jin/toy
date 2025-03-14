@@ -1,4 +1,17 @@
-#' Core function to generate the number of participants randomized by site
+#' Generate Table of Randomized Participants by Site
+#'
+#' @description
+#' Generates two summary data frames grouped by treatment and site and
+#' optionally by country. Both data frames share the same structure, with one
+#' containing counts and the other percentages. The function takes ADSL as
+#' the input dataset.
+#'
+#' For each country and/or site, it summarizes the number of unique subjects
+#' and their corresponding percentages in each treatment group, presenting
+#' the results as a country/site × treatment matrix. In the count data frame,
+#' the top row displays the total number of subjects in each treatment group,
+#' while in the percentage data frame, these values are represented as NAs.
+#'
 #'
 #' @param population_from Subject-level input dataset, typically ADSL.
 #' @param population_where A character vector of the filtering condition applied to the subject-level dataset.
@@ -15,6 +28,7 @@
 #' and the other named report.table.p for percentage results.
 #' @import dplyr
 #' @export
+#'
 #'
 #' @examples
 #' dm_site_core(

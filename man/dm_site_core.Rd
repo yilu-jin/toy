@@ -2,7 +2,7 @@
 % Please edit documentation in R/dm_site_core.R
 \name{dm_site_core}
 \alias{dm_site_core}
-\title{Core function to generate the number of participants randomized by site}
+\title{Generate Table of Randomized Participants by Site}
 \usage{
 dm_site_core(
   population_from,
@@ -41,7 +41,16 @@ A list containing two data frames: one named report.table.n for count results,
 and the other named report.table.p for percentage results.
 }
 \description{
-Core function to generate the number of participants randomized by site
+Generates two summary data frames grouped by treatment and site and
+optionally by country. Both data frames share the same structure, with one
+containing counts and the other percentages. The function takes ADSL as
+the input dataset.
+
+For each country and/or site, it summarizes the number of unique subjects
+and their corresponding percentages in each treatment group, presenting
+the results as a country/site × treatment matrix. In the count data frame,
+the top row displays the total number of subjects in each treatment group,
+while in the percentage data frame, these values are represented as NAs.
 }
 \examples{
 dm_site_core(
